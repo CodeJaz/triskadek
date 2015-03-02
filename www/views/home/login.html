@@ -1,0 +1,22 @@
+<ion-header-bar align-title="center" class="bar-app-header">
+    <h1 class="title">Login</h1>
+</ion-header-bar>
+<ion-view class="has-header ">
+    <ion-content class="app-login-content has-footer">
+
+        <h1 class="app-logo app-logo-h"></h1>
+
+        <div class="app-login-form" ng-model="login">
+            <div class="list ">
+                <label class="item item-input">
+                    <input type="text" id="username" name="username" placeholder="Nombre" ng-model="login.username">
+                </label>
+                <label class="item item-input">
+                    <input type="password" id="password" name="password" placeholder="Contraseña"
+                           ng-model="login.password">
+                </label>
+            </div>
+            <button class="button button-full app-button-green" ng-click="loginSubmit()">Iniciar Sesión</button>
+        </div>
+    </ion-content>
+</ion-view>

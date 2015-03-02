@@ -1,0 +1,21 @@
+.app-footer {
+  padding: 0;
+  border-top: none;
+  background: $black_900;
+}
+
+.nav-item {
+  display: block;
+  width: 50%;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: transparent;
+  text-align: center;
+  line-height: 44px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 0;
+  &.active {
+    background-color: $green_700;
+  }
+}

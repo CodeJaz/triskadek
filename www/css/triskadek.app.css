@@ -1,0 +1,89 @@
+.app-button-green {
+  color: white;
+  background: #7cb342;
+  border: 1px solid transparent; }
+  .app-button-green.active, .app-button-green.activated {
+    background-color: #558b2f; }
+  .app-button-green:hover {
+    color: white; }
+
+.bar-app-header {
+  background: #7cb342;
+  border-bottom: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); }
+  .bar-app-header .title, .bar-app-header .button {
+    color: white; }
+
+.app-logo-h {
+  display: inline-block;
+  width: 100%;
+  height: 70px;
+  background: url('../img/dicormo-logo-h.svg') no-repeat center center;
+  text-align: center;
+  margin-bottom: 1em; }
+  .app-logo-h:first-child {
+    margin-top: 1em; }
+
+.app-footer {
+  padding: 0;
+  border-top: none;
+  background: #212121; }
+
+.nav-item {
+  display: block;
+  width: 50%;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: transparent;
+  text-align: center;
+  line-height: 44px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 0; }
+  .nav-item.active {
+    background-color: #7cb342; }
+
+.app-login-content {
+  padding: 1em; }
+
+.app-login-form .list {
+  margin-bottom: 0; }
+.app-login-form .item-input {
+  margin-bottom: 0.5em;
+  background-color: #fafafa;
+  border-color: #f5f5f5; }
+  .app-login-form .item-input:last-child {
+    margin-bottom: 0; }
+
+.link {
+  display: block;
+  text-transform: uppercase;
+  font-size: 13px;
+  text-decoration: none; }
+  .link.link-green {
+    font-weight: bold;
+    color: #7cb342; }
+
+.tweets .item-body a {
+  color: #00aced;
+  text-decoration: none; }
+
+.statuses .item-body a {
+  color: #3B5998;
+  text-decoration: none; }
+
+.item {
+  border-color: #eeeeee; }
+
+.card {
+  box-shadow: none;
+  border: 1px solid #eeeeee; }
+
+.post-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1em 0; }
+.post-body a {
+  color: #7cb342;
+  text-decoration: none; }

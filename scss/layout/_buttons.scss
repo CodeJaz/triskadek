@@ -1,0 +1,11 @@
+.app-button-green {
+  color: white;
+  background: $green_700;
+  border: 1px solid transparent;
+  &.active,&.activated {
+    background-color: $green_800;
+  }
+  &:hover {
+    color: white;
+  }
+}

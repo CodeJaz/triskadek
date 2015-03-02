@@ -1,0 +1,16 @@
+.app-login-content {
+  padding: 1em;
+}
+.app-login-form {
+  .list {
+    margin-bottom: 0;
+  }
+  .item-input {
+    margin-bottom: 0.5em;
+    background-color: $grey_50;
+    border-color: $grey_100;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
