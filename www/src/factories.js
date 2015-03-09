@@ -1,36 +1,39 @@
-angular.module('triskadekApp').
-    factory('Login', ['$http', function ($http) {
-        return {
-            auth: function (credentials) {
-                var authUser = $http({
-                    method: 'POST',
-                    url: 'http://localhost:8000/api/login/auth',
-                    params: credentials
-                });
-                return authUser;
-            }
-        };
-    }])
-    .factory('Blog', ['$resource',function ($resource) {
-        return $resource('http://dicormo.com/wp-json/posts/:id',{ id:'@id'});
-    }])
-    .factory('Twitter', ['$http', function ($http) {
-        var url = 'http://104.236.42.145/app/twitter';
-        return {
-            get: function (callback) {
-                $http.get(url).success(function (data) {
-                    callback(data);
-                });
-            }
-        };
-    }])
-    .factory('Facebook', ['$http', function ($http) {
-        var url = 'http://104.236.42.145/app/facebook';
-        return {
-            get: function (callback) {
-                $http.get(url).success(function (data) {
-                    callback(data);
-                });
-            }
-        };
-    }]);
+angular.module('DicormoApp')
+  .factory('AuthService', ['$http', function ($http) {
+    var authService = {};
+    var url = 'http://104.236.42.145/app/login/'
+
+    authService.login = function (credentials) {
+
+      return $http
+        .post(url, credentials)
+        .then(function (res) {
+          console.log(res);
+        });
+    };
+
+    return authService;
+  }])
+  .factory('Blog', ['$resource', function ($resource) {
+    return $resource('http://dicormo.com/wp-json/posts/:id', {id: '@id'});
+  }])
+  .factory('Twitter', ['$http', function ($http) {
+    var url = 'http://104.236.42.145/app/twitter';
+    return {
+      get: function (callback) {
+        $http.get(url).success(function (data) {
+          callback(data);
+        });
+      }
+    };
+  }])
+  .factory('Facebook', ['$http', function ($http) {
+    var url = 'http://104.236.42.145/app/facebook';
+    return {
+      get: function (callback) {
+        $http.get(url).success(function (data) {
+          callback(data);
+        });
+      }
+    };
+  }]);

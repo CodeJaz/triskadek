@@ -2,8 +2,13 @@
   padding: 1em;
 }
 .app-login-form {
+  
   .list {
     margin-bottom: 0;
+    
+    .item {
+      margin-bottom: 0.5em;
+    }
   }
   .item-input {
     margin-bottom: 0.5em;
@@ -14,3 +19,20 @@
     }
   }
 }
+
+
+label.item.has-error {
+  border-bottom: 2px solid red;
+}
+
+label.item.has-error-lr {
+  border-left: 2px solid red;
+  border-right: 2px solid red;
+}
+
+label.item.valid-lr {
+  border-left: 2px solid green;
+  border-right: 2px solid green;
+}
+
+

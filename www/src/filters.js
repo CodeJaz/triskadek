@@ -1,4 +1,4 @@
-angular.module('triskadekApp')
+angular.module('DicormoApp')
     .filter('ago', function () {
         return function (value) {
 

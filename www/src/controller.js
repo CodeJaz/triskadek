@@ -1,33 +1,56 @@
-angular.module('triskadekApp')
-    .controller('LoginCtrl', ['$scope', 'Login', function ($scope, Login) {
-        $scope.login = {};
+angular.module('DicormoApp')
+  .controller('LoginCtrl', ['$scope', '$ionicLoading', 'AuthService', function ($scope, $ionicLoading, AuthService) {
+    var _form = null;
+    $scope.credentials = {
+      username: '',
+      password : ''
+    };
+    $scope.credentialsDefault = {
+      username: '',
+      password : ''
+    };
 
-        $scope.loginSubmit = function () {
-            console.log($scope.login);
-            var auth = Login.auth($scope.login);
-            auth.success(function (res) {
-                console.log(res);
-            });
-        }
-    }])
-    .controller('FeedCtrl',['$scope','Twitter','Facebook','Blog', function ($scope, Twitter, Facebook, Blog) {
-        $scope.tweets = [];
-        $scope.statuses = [];
 
-        Twitter.get(function (data) {
-            $scope.tweets = data;
+    $scope.login = function(form) {
+      _form = form;
+      if(form.$valid) {
+        $scope.doLogin();
+      }
+    };
+
+    $scope.doLogin = function() {
+      $ionicLoading.show({template: 'Cargando...'});
+      AuthService.login($scope.credentials)
+        .then(function ( user ) {
+          alert('Bienvenido : ' + user.name );
+        }, function ( ) {
+          alert('Error al ingresar, intenta nuevamente');
+          $ionicLoading.hide();
+          _form.$setPristine();
+          $scope.credentials = $scope.credentialsDefault;
+
         });
+    }
 
-        Facebook.get(function ( data ) {
-            $scope.statuses = data;
-        });
+  }])
+  .controller('FeedCtrl', ['$scope', 'Twitter', 'Facebook', 'Blog', function ($scope, Twitter, Facebook, Blog) {
+    $scope.tweets = [];
+    $scope.statuses = [];
 
-        $scope.posts = Blog.query();
+    Twitter.get(function (data) {
+      $scope.tweets = data;
+    });
 
-    }])
-    .controller('PostCtrl', ['$scope','$stateParams','Blog',function ($scope,$stateParams,Blog) {
-        var postId = $stateParams.id;
-        var post = Blog.get({ id:postId }, function () {
-           $scope.post = post;
-        });
-    }]);
+    Facebook.get(function (data) {
+      $scope.statuses = data;
+    });
+
+    $scope.posts = Blog.query();
+
+  }])
+  .controller('PostCtrl', ['$scope', '$stateParams', 'Blog', function ($scope, $stateParams, Blog) {
+    var postId = $stateParams.id;
+    var post = Blog.get({id: postId}, function () {
+      $scope.post = post;
+    });
+  }]);
